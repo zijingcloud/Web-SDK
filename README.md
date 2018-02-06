@@ -3,7 +3,7 @@
 Web-SDK 是紫荆云平台Web端Javascript版本SDK。Web-SDK 可以帮助您在十分钟内快速搭建基于浏览器的音视频应用。Web-SDK 使用WebRTC协议构建音视频通话服务，让您轻松应对一对一、多对多音视频通话及实时数据传输等复杂应用场景。
  
 # 问题反馈
-* 关于SDK的问题，您可以在[Issues](https://github.com/zijingcloud/Web-SDK/issues/new)中反馈。
+* 任何关于SDK的问题，您可以在[Issues](https://github.com/zijingcloud/Web-SDK/issues/new)中反馈。
 
 # 安装
 在html文件中用<script> 引用 zjrtc.js 即可。
