@@ -27,8 +27,14 @@ Web-SDK 是紫荆云平台Web端Javascript版本SDK。Web-SDK 可以帮助您在
  待完善
 
 # API
- 待完善
 
+> // 创建RTC实例
+>
+> var rtc =  new ZjRTC();
+>
+> // 获取版本号
+>
+> var version = rtc.getVersion();
 
 
 
