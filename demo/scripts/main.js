@@ -42,7 +42,7 @@ angular.module('angularApp')
     };
 
     rtc.onConnect = function(stream) {
-      if (rtc.call_type === 'video') {
+      if (rtc.call_type === 'video' || rtc.call_type == 'recvonly') {
         $('#rvideo')[0].srcObject = stream;
         $('#raudio')[0].srcObject = stream;
       }
@@ -88,7 +88,7 @@ angular.module('angularApp')
 
     // click enter to conference
     $scope.enterConference = function(){
-        rtc.makeCall(mcuHost, alias, displayName, null, 'video');
+        rtc.makeCall(mcuHost, alias, displayName, null, 'recvonly');
     }
 
 
