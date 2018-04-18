@@ -88,7 +88,7 @@ angular.module('angularApp')
 
     // click enter to conference
     $scope.enterConference = function(){
-        rtc.makeCall(mcuHost, alias, displayName, null, 'recvonly');
+        rtc.makeCall(mcuHost, alias, displayName, null, 'video');
     }
 
 
