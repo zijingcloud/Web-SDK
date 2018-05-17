@@ -12,8 +12,8 @@ Web-SDK 是紫荆云平台Web端Javascript版本SDK。Web-SDK 可以帮助您在
 # 使用
  参见《Javascript接口API.docx》文档
 
-# demo使用
-将demo目录下文件挂在 Web Server 下，然后直接访问 Web 页面即可。 由于浏览器限制，非localhost域名访问时需要使用 `https://` 方式访问。
+# demos使用
+demos下面每个文件夹代表一个Web应用，将应用挂在 Web Server 下，然后直接访问 Web 页面即可。 由于浏览器限制，非localhost域名访问时需要使用 `https://` 方式访问。
 
 例子：
 
