@@ -90,7 +90,34 @@ angular.module('angularApp')
     $scope.enterConference = function(){
         rtc.makeCall(mcuHost, alias, displayName, null, 'video');
     }
+    $scope.exitConference = function(){
+      rtc.disconnect();
+    }
+
+    //屏幕共享
+    $scope.screenShare = function(){
+      rtc.present('screen');
+    }
+    $scope.exitScreenShare = function(){
+      rtc.present(null);
+    }
+    rtc.onScreenshareStopped = function(msg){
+      console.log('onScreenshareStopped: ', msg);
+    }
+    rtc.onScreenshareMissing = function(msg){
+      var message = '使用屏幕共享网站需要支持 "https".\n 未检查到屏幕分享插件，请安装:\n https://cs.zijingcloud.com/static/extension/browser.html';
+      alert(message);
+      console.log(message);
+    }
 
 
 
+
+
+    rtc.onError = function(msg){
+      console.log('onError: ', msg);
+    }
+    window.onbeforeunload = function(){
+      rtc.disconnect();
+    }
   }]);
