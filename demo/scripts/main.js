@@ -68,7 +68,7 @@ angular.module('angularApp')
       if(res.code === '200')
       {
         mcuHost = res.results.mcuHost; rtc.pin = password
-        zjReg.register(mcuHost, 'feng.wang@zijingcloud.com', 'wang@2015');
+        zjReg.register(mcuHost, 'wangzhen@zijingcloud.com', 'wz@2016');
       }
       else
         alert(res.results);
