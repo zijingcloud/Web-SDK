@@ -14,6 +14,7 @@
         <br>
         <input id="uploadText" type="text">
         <button id="btn">Send</button>
+        <button id="quit">Quit</button>
     </div>
     <script src="https://cs.zijingcloud.com/web_join/webrtc/js/zjrtc.js"></script>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -52,6 +53,10 @@
         messages.push(`"${sendMessage}" by me`);
         $('#chatRoom').val(messages.join('\n'));
         rtc.sendChatMessage(sendMessage);
+    })
+
+    $('#quit').click(function(){
+      rtc.disconnect();
     })
     </script>
 </body>
