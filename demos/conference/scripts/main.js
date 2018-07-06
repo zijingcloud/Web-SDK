@@ -53,7 +53,7 @@ angular.module('angularApp')
     var apiServer = 'cs.zijingcloud.com',
       mcuHost = '',
       alias = '1061',
-      password = '',
+      password = '123456',
       displayName = 'demo';
     // rtc.pin = password; // conference password, if it has.
 
