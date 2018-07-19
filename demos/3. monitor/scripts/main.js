@@ -17,7 +17,8 @@ angular.module('angularApp')
 
     var _this = this;
     var rtc = new ZjRTC(); // 
-    var zjReg = new ZjRegister(); // register for receiving incoming call;
+
+    rtc.hideme = true; // hide in participant list;
 
     rtc.onSetup = function(stream, pinStatus, conferenceExtension) {
       $timeout(function() {
@@ -48,8 +49,6 @@ angular.module('angularApp')
       }
     };
 
-
-
     var apiServer = 'cs.zijingcloud.com',
       mcuHost = '',
       alias = '1061',
@@ -68,7 +67,6 @@ angular.module('angularApp')
       if(res.code === '200')
       {
         mcuHost = res.results.mcuHost; rtc.pin = password
-        zjReg.register(mcuHost, 'wangzhen@zijingcloud.com', 'wz@2016');
       }
       else
         alert(res.results);
@@ -77,41 +75,13 @@ angular.module('angularApp')
       alert(`接口异常，请确认您有权访问该接口:${err.config.url}。`);
     })
 
-
-    // 被动入会
-    zjReg.onIncoming = function(msg){
-        setTimeout(function(){
-          rtc.oneTimeToken = msg.token; // used to pass call token 
-          rtc.makeCall(mcuHost, msg.conference_alias, displayName, null, 'video');
-        },);
-    }
-
     // click enter to conference
     $scope.enterConference = function(){
-        rtc.makeCall(mcuHost, alias, displayName, null, 'video');
+        rtc.makeCall(mcuHost, alias, displayName, null, 'recvonly');
     }
     $scope.exitConference = function(){
       rtc.disconnect();
     }
-
-    //屏幕共享
-    $scope.screenShare = function(){
-      rtc.present('screen');
-    }
-    $scope.exitScreenShare = function(){
-      rtc.present(null);
-    }
-    rtc.onScreenshareStopped = function(msg){
-      console.log('onScreenshareStopped: ', msg);
-    }
-    rtc.onScreenshareMissing = function(msg){
-      var message = '使用屏幕共享网站需要支持 "https".\n 未检查到屏幕分享插件，请安装:\n https://cs.zijingcloud.com/static/extension/browser.html';
-      alert(message);
-      console.log(message);
-    }
-
-
-
 
 
     rtc.onError = function(msg){
