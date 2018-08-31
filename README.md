@@ -32,9 +32,7 @@ demos下面每个文件夹代表一个Web应用，将应用挂在 Web Server 下
 >
 > var rtc =  new ZjRTC();
 >
-> // 获取版本号
->
-> var version = rtc.getVersion();
+
 
 
 
