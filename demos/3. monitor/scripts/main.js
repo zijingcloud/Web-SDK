@@ -49,7 +49,7 @@ angular.module('angularApp')
       }
     };
 
-    var apiServer = 'cs.zijingcloud.com',
+    var apiServer = 'vapi.myvmr.cn',
       mcuHost = '',
       alias = '1061',
       password = '123456',
