@@ -1,1 +1,10 @@
 /demos/chatRoom/config.codekit3
+.DS_Store
+.idea/Web-SDK.iml
+.idea/modules.xml
+.idea/workspace.xml
+demos/.DS_Store
+.idea/inspectionProfiles/Project_Default.xml
+.idea/vcs.xml
+
+
