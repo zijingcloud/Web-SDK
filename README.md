@@ -6,8 +6,8 @@ Web-SDK 是紫荆云平台Web端Javascript版本SDK。Web-SDK 可以帮助您在
 * 任何关于SDK的问题，您可以在[Issues](https://github.com/zijingcloud/Web-SDK/issues/new)中反馈。
 
 # 安装
-在html文件中用<script> 引用 zjrtc.js 即可。
-`  <script src="zjrtc.js"></script>`
+在html文件中用<script> 引用 vcrtc.js 即可。
+`  <script src="vcrtc.js"></script>`
 
 # 使用
  参见《Javascript接口API.docx》文档
