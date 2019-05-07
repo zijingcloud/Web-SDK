@@ -19,6 +19,8 @@ angular.module('angularApp')
     var _this = this;
     var rtc = new ZjRTC(); // 
     rtc.simulcast = true;
+    rtc.clayout = "4:4";
+    rtc.isShiTong=true;
     $scope.uuid2Streams = {} // {uuid: stream};
 
     rtc.onSetup = function(stream, pinStatus, conferenceExtension) {
@@ -73,11 +75,11 @@ angular.module('angularApp')
       console.log('uuid: ',uuid, 'stream: ', stream, ' updated');
     }
 
-    var apiServer = 'cs.zijingcloud.com',
-      mcuHost = '',
-      alias = '1061',
-      password = '123456',
-      displayName = 'demo';
+      var apiServer = '192.168.0.10',
+          mcuHost = '',
+          alias = '8006733',
+          password = '4321',
+          displayName = 'demo';
     // rtc.pin = password; // conference password, if it has.
 
     var data = {
