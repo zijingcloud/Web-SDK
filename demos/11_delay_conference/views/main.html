@@ -1,0 +1,27 @@
+<div>
+    <button ng-click="enterConference1()">开启会见</button>
+    <button ng-click="switchMuteOther(1)" ng-if="!isMuteOther">中断会见</button>
+    <button ng-click="switchMuteOther()" ng-if="isMuteOther">恢复会见</button>
+    <button ng-click="switchChimedMio(1)" >插话</button>
+    <button ng-click="switchChimedMio()" >取消插话</button>
+    <button ng-click="switchMuTearOne(1)" ng-if="!switchMuTearOneFlag">开启过滤</button>
+    <button ng-click="switchMuTearOne()" ng-if="switchMuTearOneFlag">取消过滤</button>
+    <button ng-click="exitConference()">监管退出</button>
+</div>
+
+
+<div id="conter" class="container">
+    <!--<div class="side-bar" ng-include="'views/participant-list.html'" ></div>-->
+    <div class="local">
+        <h1>local stream</h1>
+        <video id="lvideo" muted autoplay playsinline style="max-width: 100%" ng-src="{{localStream}}" ></video>
+    </div>
+    <div  class="remote">
+        <h1>remote stream</h1>
+        <video id="rvideo" ng-src="{{vcrtc.videoStream}}" muted autoplay playsinline style="max-width: 100%">
+        </video>
+        <audio id="raudio" default-stream-src="{{vcrtc.videoStream}}" autoplay  />
+    </div>
+
+</div>
+
