@@ -23,7 +23,7 @@ angular.module('angularApp')
         $scope.localStream;
         $scope.enterConference1 = function () {
             //开启会见
-            vcrtc.enterConference("7d3105fb8c3c4e61a853903ec2a85005");
+            vcrtc.enterConference("123456789987654321");
             $timeout(function () {
                 $log.debug('ZjRTC.onSetup');
                 $scope.localStream = vcrtc.localStream;
@@ -37,16 +37,27 @@ angular.module('angularApp')
 
         }
         //插话和取消插话
-        $scope.switchChimedMio = function (flag, conferenceId, alias) {
+        $scope.switchChimedMio = function (flag, conferenceId) {
             // conferenceId 会见id
             //alias 插话的对象短号
-            alias = 7971;
+            let alias = "";
+            alias = $("#chaId").val();
             if (flag == 1) {
                 //开启插话
-                vcrtc.startChimedMio(conferenceId, alias);
+                let msg = vcrtc.startChimedMio(conferenceId, alias);
+                if (msg.code == 200) {
+                    alert("插话成功");
+                } else {
+                    alert("插话失败");
+                }
             } else {
                 //关闭插话
-                vcrtc.endChimedMio(conferenceId, alias);
+                let msg = vcrtc.endChimedMio(conferenceId, alias);
+                if (msg.code == 200) {
+                    alert("关闭插话成功");
+                } else {
+                    alert("关闭插话失败");
+                }
             }
 
             $scope.microphoneChimed = !$scope.microphoneChimed;
@@ -55,10 +66,20 @@ angular.module('angularApp')
         $scope.switchMuteOther = function (flag) {
             if (flag == 1) {
                 //暂停
-                vcrtc.stopConfrence();
+                let msg = vcrtc.stopConfrence();
+                if (msg.code == 200) {
+                    alert("暂停成功");
+                } else {
+                    alert("暂停失败");
+                }
             } else {
                 //恢复
-                vcrtc.recorveConfrence();
+                let msg = vcrtc.recorveConfrence();
+                if (msg.code == 200) {
+                    alert("恢复成功");
+                } else {
+                    alert("恢复失败");
+                }
             }
             $scope.isMuteOther = !$scope.isMuteOther;
         };
@@ -66,10 +87,20 @@ angular.module('angularApp')
         $scope.switchMuTearOne = function (flag) {
             if (flag == 1) {
                 //开启过滤
-                vcrtc.openFilterOne();
+                let msg = vcrtc.openFilterOne();
+                if (msg.code == 200) {
+                    alert("过滤成功");
+                } else {
+                    alert("过滤失败");
+                }
             } else {
                 //关闭过滤
-                vcrtc.closeFilterOne();
+                let msg =  vcrtc.closeFilterOne();
+                if (msg.code == 200) {
+                    alert("关闭过滤成功");
+                } else {
+                    alert("关闭过滤失败");
+                }
             }
             $scope.switchMuTearOneFlag = !$scope.switchMuTearOneFlag;
         }
