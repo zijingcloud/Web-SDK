@@ -17,11 +17,18 @@
         <h1>local stream</h1>
         <video id="lvideo" muted autoplay playsinline style="max-width: 100%" ng-src="{{localStream}}" ></video>
     </div>
-    <div  class="remote">
+    <div  class="remote" ng-if="!simulcast">
         <h1>remote stream</h1>
         <!--<video id="rvideo1"  muted autoplay playsinline style="max-width: 100%"></video>-->
         <video id="rvideo"  muted autoplay playsinline style="max-width: 100%"></video>
         <audio id="raudio" default-stream-src="{{vcrtc.videoStream}}" autoplay  />
+    </div>
+    <div  class="simulcast remote" ng-if="simulcast">
+        <h1>simulcast remote stream</h1>
+        <audio id="raudio"  autoplay  />
+        <video id="rvideo2"  muted autoplay playsinline style="max-width: 100%"></video>
+        <video id="rvideo1"  muted autoplay playsinline style="max-width: 100%"></video>
+        <audio id="raudio"  autoplay  />
     </div>
 </div>
 

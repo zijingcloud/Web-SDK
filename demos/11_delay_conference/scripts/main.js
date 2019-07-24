@@ -21,18 +21,20 @@ angular.module('angularApp')
         vcrtc.alias = "1865";
         // click enter to conference
         $scope.localStream;
+        $scope.simulcast = vcrtc.vcrtc.simulcast;//是否开启多流模式
         $scope.enterConference1 = function () {
             //开启会见
             vcrtc.enterConference("123456789987654321");
-            $timeout(function () {
-                $log.debug('ZjRTC.onSetup');
-                $scope.localStream = vcrtc.localStream;
 
-                // $('#lvideo')[0].srcObject = vcrtc.localStream;
-                $('#rvideo')[0].srcObject = vcrtc.videoStream;//远端视频流
-                $('#raudio')[0].srcObject = vcrtc.audioStream;//远端音频流
-            }, 5000);
-        }
+                $timeout(function () {
+                    $log.debug('ZjRTC.onSetup');
+                    $scope.localStream = vcrtc.localStream;
+                    if(!$scope.simulcast) {
+                        $('#rvideo')[0].srcObject = vcrtc.videoStream;//远端视频流
+                    }
+                    $('#raudio')[0].srcObject = vcrtc.audioStream;//远端音频流
+                }, 5000);
+            }
         $scope.exitConference = function () {
             vcrtc.exitConference();
 
