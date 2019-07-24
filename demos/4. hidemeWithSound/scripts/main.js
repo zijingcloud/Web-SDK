@@ -83,9 +83,9 @@ angular.module('angularApp')
       }
     };
 
-    var apiServer = 'vapi.myvmr.cn',
-      mcuHost = '',
-      alias = '1061',
+    var apiServer = 'cs.wscde.com',
+      mcuHost = 'ex.wscde.com',
+      alias = '1260',
       password = '123456',
       displayName = 'demo';
     // rtc.pin = password; // conference password, if it has.

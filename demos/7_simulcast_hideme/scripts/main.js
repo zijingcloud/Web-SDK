@@ -21,9 +21,7 @@ angular.module('angularApp')
     rtc.simulcast = true;
     rtc.clayout = "4:4";
     rtc.isShiTong=false;
-    rtc.smallMaxFrameRate = 19;
-      rtc.smallMaxWidth = 680;
-      rtc.smallMaxHeigh = 520;
+    rtc.hideme = true;
     $scope.uuid2Streams = {} // {uuid: stream};
 
     rtc.onSetup = function(stream, pinStatus, conferenceExtension) {
@@ -78,10 +76,10 @@ angular.module('angularApp')
       console.log('uuid: ',uuid, 'stream: ', stream, ' updated');
     }
 
-      var apiServer = "api.51vmr.cn",
+      var apiServer = "cs.wscde.com",
           mcuHost = '',
-          alias = '5000010',
-          password = '',
+          alias = '1260',
+          password = '123456',
           displayName = 'demo';
     // rtc.pin = password; // conference password, if it has.
 
@@ -95,7 +93,9 @@ angular.module('angularApp')
     Meet.getAuth(apiServer, data).$promise.then(function(res){
       if(res.code === '200')
       {
-        mcuHost = res.results.mcuHost; rtc.pin = password
+        mcuHost = res.results.mcuHost;
+        rtc.pin = password;
+        rtc2.pin = password;
       }
       else
         alert(res.results);
@@ -106,10 +106,13 @@ angular.module('angularApp')
 
     // click enter to conference
     $scope.enterConference = function(){
-        rtc.makeCall(mcuHost, alias, displayName, null, 'video');
+          rtc.makeCall(mcuHost, alias, 'recv_man', null, 'recvonly');
+          rtc.addCall('video',);
+          // rtc2.makeCall(mcuHost, alias, 'audio_man', null, 'audioonly');
     }
     $scope.exitConference = function(){
-      rtc.disconnect();
+        rtc.disconnect();
+        rtc2.disconnect();
     }
 
     //屏幕共享

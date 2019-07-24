@@ -1,0 +1,10 @@
+<div ng-if="participants" >
+  <div class="" ng-repeat="uuid in participants">
+      <div class="participant-list-name sel-participant-name"  >
+          {{uuid.overlayText}}
+      </div>
+      <input type="text" id="text"/>
+      <button type="button" ng-click="setTxet(uuid,'BBBBBBB')">设置字幕</button>
+      <button type="button" ng-click="setclayout()">setClayout</button>
+  </div>
+</div>

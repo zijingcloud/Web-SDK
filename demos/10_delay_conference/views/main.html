@@ -1,0 +1,47 @@
+<div>
+    <select>
+        <option value="">选择会见室</option>
+        <option value="888888_666666">7969</option>
+    </select>
+    <span>{{termail01.alias_name}}:{{termail01.sipkey}}</span>
+    <span>{{termail02.alias_name}}:{{termail02.sipkey}}</span>
+    <span ng-if="microphoneMuted">本地麦克风已静音</span>
+    <span ng-if="!microphoneMuted">本地麦克风已开启</span>
+    <button ng-click="enterConference()">开启会见</button>
+    <button ng-click="switchMuteOther()" ng-if="!isMuteOther">中断会见</button>
+    <button ng-click="switchMuteOther()" ng-if="isMuteOther">恢复会见</button>
+    <button ng-click="switchChimedMio()" ng-if="!microphoneChimed">插话</button>
+    <button ng-click="switchChimedMio()" ng-if="microphoneChimed">取消插话</button>
+    <select id="selectMutear">
+        <option ng-repeat=" uuid in participants" value="{{uuid}}">
+            {{uuid.overlayText}}
+        </option>
+    </select>
+    <button ng-click="switchMuTear(1)">指定插话</button>
+    <button ng-click="switchMuTear()">取消某人插话</button>
+    <button ng-click="exitConference()">结束会见</button>
+</div>
+
+
+<div id="conter" class="container">
+    <div class="side-bar" ng-include="'views/participant-list.html'" ></div>
+    <div class="local">
+        <h1>local stream</h1>
+        <video id="lvideo" muted autoplay playsinline style="max-width: 100%" ></video>
+    </div>
+    <div ng-if="!simulcast" class="remote">
+        <h1>remote stream</h1>
+        <video id="rvideo" muted autoplay playsinline style="max-width: 100%"></video>
+        <audio id="raudio" autoplay  />
+    </div>
+    <div ng-if="simulcast" class="remote">
+        <h1> simulcast remote stream</h1>
+        <audio id="raudio" autoplay  />
+        <div  ng-repeat="uuid in participants">
+            <div id="{{uuid.uuid}}" class="divVideo"  >
+            </div>
+        </div>
+    </div>
+
+</div>
+

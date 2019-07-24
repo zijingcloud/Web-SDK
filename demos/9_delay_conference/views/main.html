@@ -1,0 +1,32 @@
+<div>
+    <button ng-click="exchange(true)" ng-if="!simulcast">切换多流</button>
+    <button ng-click="exchange(false)" ng-if="simulcast">切换权变全解</button>
+    <button ng-click="enterConference()">点击入会</button>
+    <button ng-click="exitConference()">退出会议</button>
+    <!--<button ng-click="screenShare()">屏幕分享</button>-->
+    <!--<button ng-click="exitScreenShare()">结束屏幕分享</button>-->
+</div>
+
+
+<div id="conter" class="container">
+    <div class="side-bar" ng-include="'views/participant-list.html'" ></div>
+    <div class="local">
+        <h1>local stream</h1>
+        <video id="lvideo" muted autoplay playsinline style="max-width: 100%" ></video>
+    </div>
+    <div ng-if="!simulcast" class="remote">
+        <h1>remote stream</h1>
+        <video id="rvideo" muted autoplay playsinline style="max-width: 100%"></video>
+        <audio id="raudio" autoplay  />
+    </div>
+    <div ng-if="simulcast" class="remote">
+        <h1> simulcast remote stream</h1>
+        <audio id="raudio" autoplay  />
+        <div  ng-repeat="uuid in participants">
+            <div id="{{uuid.uuid}}" class="divVideo"  >
+            </div>
+        </div>
+    </div>
+
+</div>
+

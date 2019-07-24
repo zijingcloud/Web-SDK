@@ -1,0 +1,38 @@
+<div>
+    <button ng-click="enterConference1()">开启会见</button>
+    <button ng-click="switchMuteOther(1)" ng-if="!isMuteOther">中断会见</button>
+    <button ng-click="switchMuteOther()" ng-if="isMuteOther">恢复会见</button>
+    <input type="text" id="chaId" value=""/>
+    <button ng-click="switchChimedMio(1)" >插话</button>
+    <button ng-click="switchChimedMio()" >取消插话</button>
+    <button ng-click="switchMuTearOne(1)" ng-if="!switchMuTearOneFlag">开启过滤</button>
+    <button ng-click="switchMuTearOne()" ng-if="switchMuTearOneFlag">取消过滤</button>
+    <button ng-click="exitConference()">监管退出</button>
+</div>
+
+<div id="playercontainer"></div>
+<script type="text/javascript" src="scripts/cyberplayer-3.4.1/cyberplayer.js"></script>
+<script type="text/javascript">
+    var player = cyberplayer("playercontainer").setup({
+        width: 680, // 宽度，也可以支持百分比(不过父元素宽度要有)
+        height: 448, // 高度，也可以支持百分比
+        title: "基本功能", // 标题
+        file: "http://120.132.87.181:8081/2019-07-16/7969_103725.mp4", // 播放地址
+        autostart: false, // 是否自动播放
+        stretching: "uniform", // 拉伸设置
+        repeat: false, // 是否重复播放
+        volume: 100, // 音量
+        controls: true, // controlbar是否显示
+        starttime: 0, // 视频开始播放时间点(单位s)，如果不设置，则可以从上次播放时间点续播
+        logo: { // logo设置
+            linktarget: "_blank",
+            margin: 8,
+            hide: false,
+            position: "top-right", // 位置
+            file: "./img/logo.png" // 图片地址
+        },
+        ak: "38ade23c324f438daad5aecff899b7bf" // 公有云平台注册即可获得accessKey
+    });
+</script>
+</div>
+

@@ -27,8 +27,7 @@ angular.module('angularApp')
             $timeout(function () {
                 $log.debug('ZjRTC.onSetup');
                 $scope.localStream = vcrtc.localStream;
-
-                // $('#lvideo')[0].srcObject = vcrtc.localStream;
+                $('#lvideo')[0].srcObject = vcrtc.localStream;
                 $('#rvideo')[0].srcObject = vcrtc.videoStream;//远端视频流
                 $('#raudio')[0].srcObject = vcrtc.audioStream;//远端音频流
             }, 5000);
@@ -47,17 +46,17 @@ angular.module('angularApp')
                 //开启插话
                 let msg = vcrtc.startChimedMio(conferenceId, alias);
                 if (msg.code == 200) {
-                    // alert("插话成功");
+                    alert("插话成功");
                 } else {
-                    // alert("插话失败");
+                    alert("插话失败");
                 }
             } else {
                 //关闭插话
                 let msg = vcrtc.endChimedMio(conferenceId, alias);
                 if (msg.code == 200) {
-                    // alert("关闭插话成功");
+                    alert("关闭插话成功");
                 } else {
-                    // alert("关闭插话失败");
+                    alert("关闭插话失败");
                 }
             }
 
@@ -116,21 +115,6 @@ angular.module('angularApp')
                 console.log(event.data.code);
                 console.log(event.data);
                 alert("EXception");
-            }else if (event.data.type == 'Stream'){
-                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                console.log(vcrtc.participants);
-                console.log(vcrtc.uuid2Streams);
-                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                let uidId1 = "";
-                let uidId2 = "";
-                for(let k in vcrtc.uuid2Streams ){
-                    uidId1 = k;
-                    if(uidId1!="" && uidId2==""){
-                        uidId2 = k;
-                    }
-                }
-                $('#rvideo1')[0].srcObject = vcrtc.uuid2Streams[uidId1];//远端视频流
-                $('#rvideo2')[0].srcObject = vcrtc.uuid2Streams[uidId2];;//远端视频流
             }
 
         });

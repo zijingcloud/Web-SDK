@@ -49,9 +49,9 @@ angular.module('angularApp')
         };
 
 
-        var apiServer = 'cs.wscde.com',
-            mcuHost = 'ex.wscde.com',
-            alias = '1260',
+        var apiServer = 'bss.lalonline.cn',
+            mcuHost = '',
+            alias = '1866',
             password = '123456',
             displayName = 'demo';
         // rtc.pin = password; // conference password, if it has.
@@ -86,7 +86,7 @@ angular.module('angularApp')
 
         // click enter to conference
         $scope.enterConference = function () {
-            rtc.makeCall(mcuHost, alias, displayName, null, 'video');
+            rtc.makeCall(mcuHost, alias, displayName, null, 'rtmp');
         }
         $scope.exitConference = function () {
             rtc.disconnect();

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="styles/bootstrap.css" />
+</head>
+
+<body ng-app="angularApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <!-- Add your site or application content here -->
+  <div class="header">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/">多流入会测试程序</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h3>
+        使用说明：
+    </h3>
+    <div>
+      <ol>
+        <li>请将该网页应用放置在已安装有效SSl证书的网站上。</li>
+        <li>您也可也将该网页也用放在本地的Web网站上，此时您必须使用http://localhost的方式访问该测试网页。</li>
+        <li>请确保您的机器有摄像头和麦克风</li>
+      </ol>
+    </div>
+    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+  </div>
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/angular.min.js"></script>
+  <script src="vendor/bootstrap.min.js"></script>
+  <script src="vendor/angular-resource.min.js"></script>
+  <script src="vendor/angular-animate.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="../../SDK/vcrtc.js"></script>
+  <script src="scripts/ZjRegister.js"></script>
+  <script src="scripts/services.js"></script>
+</body>
+
+</html>

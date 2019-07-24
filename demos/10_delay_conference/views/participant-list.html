@@ -1,0 +1,15 @@
+<div ng-if="participants" >
+  <div ng-repeat="uuid in participants">
+      <div class="participant-list-name sel-participant-name"  >
+          {{uuid.overlayText}}
+          {{uuid.isSelf}}
+          {{uuid.isMuted}}
+          <button ng-click="setParticipantDelay(uuid,1)" ng-if="uuid.delay_time>0">取消延时</button>
+          <button ng-click="setParticipantDelay(uuid)" ng-if="!uuid.delay_time>0">恢复延时</button>
+          <button ng-click="switchMute(uuid,1)" ng-if="!uuid.isMuted">开启禁言</button>
+          <button ng-click="switchMute(uuid)" ng-if="uuid.isMuted">关闭禁言</button>
+          <button ng-click="switchMuTearOne(uuid,1)"ng-if="!uuid.isEarMuted">开启过滤接收</button>
+          <button ng-click="switchMuTearOne(uuid)"ng-if="uuid.isEarMuted">关闭过滤</button>
+      </div>
+  </div>
+</div>
