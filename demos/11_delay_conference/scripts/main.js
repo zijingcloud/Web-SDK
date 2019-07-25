@@ -125,12 +125,9 @@ angular.module('angularApp')
                 console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 let uidId1 = "";
                 let uidId2 = "";
-                for(let k in vcrtc.uuid2Streams ){
-                    uidId1 = k;
-                    if(uidId1!="" && uidId2==""){
-                        uidId2 = k;
-                    }
-                }
+                let keys = Object.keys(vcrtc.uuid2Streams);
+                uidId1 = keys[0];
+                uidId2 = keys[1];
                 $('#rvideo1')[0].srcObject = vcrtc.uuid2Streams[uidId1];//远端视频流
                 $('#rvideo2')[0].srcObject = vcrtc.uuid2Streams[uidId2];;//远端视频流
             }
