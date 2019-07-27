@@ -230,8 +230,12 @@ angular.module('angularApp')
         $scope.setTxet = function (uuid,text) {
             rtc.setParticipantText(uuid.uuid,text);
 
-        }
+        };
         $scope.setclayout = function(){
             rtc.setClayout("2:0");
-        }
+        };
+        $scope.camer = function(uuid,flag){
+            rtc.setParticipantVideoMute(uuid.uuid,flag);
+            $scope.isVideoMute = !$scope.isVideoMute;
+        };
     }]);

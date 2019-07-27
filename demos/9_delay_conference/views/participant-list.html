@@ -6,5 +6,7 @@
       <input type="text" id="text"/>
       <button type="button" ng-click="setTxet(uuid,'BBBBBBB')">设置字幕</button>
       <button type="button" ng-click="setclayout()">setClayout</button>
+      <button type="button" ng-click="camer(uuid,true)" ng-if="!isVideoMute">>禁画</button>
+      <button type="button" ng-click="camer(uuid,false)" ng-if="isVideoMute">取消禁画</button>
   </div>
 </div>
