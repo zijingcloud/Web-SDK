@@ -37,7 +37,7 @@ angular.module('angularApp')
             }
         $scope.exitConference = function () {
             vcrtc.exitConference();
-
+            vcrtc = new VCrtcSerive();
         }
         //插话和取消插话
         $scope.switchChimedMio = function (flag, conferenceId) {
